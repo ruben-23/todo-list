@@ -1,0 +1,27 @@
+
+.sidebar{
+    background-color: #5C4A82;
+    color: #FFD700;
+}
+
+.side-items {
+    display: grid;
+    gap: 10px;
+    padding-top: 50px;
+}
+
+.side-items > div{
+    background-color: #4A3B6E;
+    padding: 20px 0px;
+    outline: 1px solid #3B2C5A;
+}
+
+.side-items > div:hover{
+    background-color: #8C4DFF;
+    color: #FFF8E1;
+    cursor: pointer;
+}
+
+.side-items h2 {
+    text-align: center;
+}
