@@ -7,6 +7,7 @@ export default class Project {
         this.id = crypto.randomUUID();
         this.title = title;
         this.description = description;
+        this.taskCount = 0;
         this.todos = [];
     }   
 
