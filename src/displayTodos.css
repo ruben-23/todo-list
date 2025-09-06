@@ -1,0 +1,98 @@
+
+.content {
+    background-color: #F3E8FF;
+    display: grid;
+    grid-template-rows: 0.5fr 8fr;
+    color: #6A0DAD;
+}
+
+button {
+    border-radius: 10px;
+    border: none;
+    background-color: #FFC107;
+    color: #3B2C5A;
+}
+
+button:hover{
+    background-color: #8C4DFF;
+    color: #FFD700;
+    scale: 1.05;
+}
+
+.buttons {
+    padding: 10px 10px 10px 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+}
+
+.buttons button {
+    font-size: 18px;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+.content-items {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    grid-template-rows: repeat(auto-fit, minmax(250px, 300px));
+    grid-auto-rows: clamp(250px, 280px, 300px);
+    justify-content: center;
+    gap: 10px;
+}
+
+.todo-card {
+    background-color: #FFF8E1;
+    padding: 20px;
+    display: grid;
+    border-radius: 12px;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-buttons button {
+    font-size: 16px;
+    padding: 8px 20px;
+    cursor: pointer;
+}
+
+.card-buttons button:last-of-type {
+    background-color: #fc3a37;
+    color: #FFF8E1;
+}
+
+.card-buttons button:last-of-type:hover{
+    background-color: rgb(233, 63, 63);
+    color: #F3E8FF;
+}
+
+.priority {
+    display: flex;
+    gap: 10px;
+}
+
+.priority-icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+}
+
+.priority-critical {
+    background-color: red;
+}
+.priority-high {
+    background-color: orange;
+}
+.priority-medium {
+    background-color: gold;
+}
+.priority-low {
+    background-color: gray;
+}
