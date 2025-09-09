@@ -75,14 +75,12 @@ export function displayItems(projects) {
             const cardButtons = document.createElement('div');
             cardButtons.classList.add('card-buttons');
 
-            const viewTodosButton = document.createElement('button');
-            viewTodosButton.textContent = 'View'
             const editTodosButton = document.createElement('button');
-            editTodosButton.textContent = 'Edit'
+            editTodosButton.textContent = 'View / Edit'
             const deleteTodosButton = document.createElement('button');
             deleteTodosButton.textContent = 'Delete'
 
-            cardButtons.append(viewTodosButton, editTodosButton, deleteTodosButton);
+            cardButtons.append( editTodosButton, deleteTodosButton);
 
             todoCard.append(header, description, dueDate, priorityDiv, cardButtons);
 
