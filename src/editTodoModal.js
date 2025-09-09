@@ -2,13 +2,10 @@
 
 import './addTodoModal.css';
 import { displayItems } from './displayTodos.js';
+import { getProjectById } from './projectsController.js';
 import Todo from './Todo.js';
 
 export default function displayEditTodoModal(todo, projects) {
-
-    function findProjectById(id) {
-        return projects.find(project => project.id === id);
-    }
 
     const mainContainer = document.querySelector('.main-container');
 
@@ -196,14 +193,14 @@ export default function displayEditTodoModal(todo, projects) {
                                     prioritySelect.value,
                                     projectSelect.value,
                                     notesTextarea.value );
-            let newProject = findProjectById(projectSelect.value);
+            let newProject = getProjectById(projectSelect.value);
             newProject.addTodo(newTodo);
 
             // delete todo from old project
-            let oldProject = findProjectById(todo.projectId);
+            let oldProject = getProjectById(todo.projectId);
             oldProject.removeTodo(todo.id);
         } else {
-            let project = findProjectById(todo.projectId);
+            let project = getProjectById(todo.projectId);
             let exisitingTodo = project.getTodoById(todo.id);
             exisitingTodo.updateTodo( titleInput.value,
                                       descriptionInput.value,

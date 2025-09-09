@@ -2,6 +2,7 @@
 
 import './addTodoModal.css';
 import { displayItems } from './displayTodos.js';
+import { getProjectById } from './projectsController.js';
 import Todo from './Todo.js';
 
 export default function displayAddTodoModal(projects) {
@@ -169,7 +170,7 @@ export default function displayAddTodoModal(projects) {
                                   projectSelect.value,
                                   notesTextarea.value );
 
-        let project = findProjectById(projectSelect.value);
+        let project = getProjectById(projectSelect.value);
         project.addTodo(newTodo);
         displayItems(projects);
         dialog.close();
