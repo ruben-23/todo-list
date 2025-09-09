@@ -157,13 +157,18 @@ export default function displayAddTodoModal(projects) {
     addButton.addEventListener('click', (e) => {
         e.preventDefault();
 
+        if(!titleInput.value || !dateInput.value){
+            alert('Title and Due Date are required');
+            return;
+        }
+
         const newTodo = new Todo( titleInput.value,
                                   descriptionInput.value,
                                   dateInput.value,
                                   prioritySelect.value,
                                   projectSelect.value,
                                   notesTextarea.value );
-        console.log(newTodo)
+
         let project = findProjectById(projectSelect.value);
         project.addTodo(newTodo);
         displayItems(projects);

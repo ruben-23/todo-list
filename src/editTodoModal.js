@@ -182,6 +182,11 @@ export default function displayEditTodoModal(todo, projects) {
     saveButton.addEventListener('click', (e) => {
         e.preventDefault();
 
+        if(!titleInput.value || !dateInput.value){
+            alert('Title and Due Date are required');
+            return;
+        }
+
         // if the project has been changed create new todo else update the todo.
         if(projectSelect.value !== todo.projectId){
             // add todo to new project
