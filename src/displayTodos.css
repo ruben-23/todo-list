@@ -49,6 +49,31 @@ button:hover{
     border-radius: 12px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.check {
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 100%;
+    outline: 1px solid purple;
+    background-color: #dfc5fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    opacity: 0.5;
+}
+
+.check:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+
 .card-buttons {
     display: flex;
     justify-content: center;
@@ -93,4 +118,9 @@ button:hover{
 }
 .priority-low {
     background-color: gray;
+}
+
+.checked {
+    opacity: 0.6;
+    background-color: rgb(211, 236, 173);
 }
