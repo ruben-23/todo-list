@@ -7,7 +7,6 @@ export default class Project {
         this.id = crypto.randomUUID();
         this.title = title;
         this.description = description;
-        this.taskCount = 0;
         this.todos = [];
     }   
 
@@ -18,7 +17,7 @@ export default class Project {
             return;
         }
 
-        this.todos.add(todo);
+        this.todos.push(todo);
     }
 
     removeTodo(id) {
@@ -31,6 +30,10 @@ export default class Project {
         }
 
         this.todos.splice(todoIndex, 1);
+    }
+
+    getTaskCount() {
+        return this.todos.length;
     }
 
 }
