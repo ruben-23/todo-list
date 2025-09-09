@@ -1,5 +1,6 @@
 
 import displayAddTodoModal from './addTodoModal';
+import displayEditTodoModal from './editTodoModal.js';
 import './displayTodos.css';
 
 
@@ -97,7 +98,9 @@ export function displayItems(projects) {
             deleteTodosButton.addEventListener('click', () => {
                 project.removeTodo(todoCard.getAttribute('data-id'));
                 displayItems(projects);
-            })
+            });
+
+            editTodosButton.addEventListener('click', () => {displayEditTodoModal(todo, projects);})
         }}
 }
 

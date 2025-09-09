@@ -36,4 +36,8 @@ export default class Project {
         return this.todos.length;
     }
 
+    getTodoById(id) {
+        return this.todos.find(todo => todo.id === id);
+    }
+
 }
