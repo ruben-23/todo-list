@@ -13,11 +13,13 @@ export default function displaySidebar() {
     const projectsDiv = document.createElement('div');
     const projectsTitle = document.createElement('h2');
     projectsTitle.textContent = "Projects";
+    projectsDiv.setAttribute('id', 'projects');
     projectsDiv.appendChild(projectsTitle);
 
     const tasksDiv = document.createElement('div');
     const tasksTitle = document.createElement('h2');
     tasksTitle.textContent = "Tasks";
+    tasksDiv.setAttribute('id', 'todos');
     tasksDiv.appendChild(tasksTitle);
 
     sideItems.append(projectsDiv, tasksDiv);

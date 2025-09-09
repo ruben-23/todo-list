@@ -105,6 +105,10 @@ export function displayItems(projects) {
 
 export default function displayTodo(projects) {
 
+    // remove the displayProjects contents if present
+    if (document.querySelector('.content'))
+        document.querySelector('.content').remove();
+
     const mainContainer = document.querySelector('.main-container');
 
     const content = document.createElement('div');

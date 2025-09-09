@@ -3,10 +3,15 @@ import './displayProjects.css';
 
 export default function displayProjects(projects) {
 
+    // remove the displayTodos contents if present
+    if (document.querySelector('.content'))
+        document.querySelector('.content').remove();
+
     const mainContainer = document.querySelector('.main-container');
 
     const content = document.createElement('div');
     content.classList.add('content');
+    content.innerHTML = '';
 
     const buttonsDiv = document.createElement('div');
     buttonsDiv.classList.add('buttons');
@@ -32,10 +37,10 @@ export default function displayProjects(projects) {
         description.textContent = project.description;
         
         const taskCount = document.createElement('p');
-        taskCount.textContent = `No. of tasks: ${project.taskCount}`;
+        taskCount.textContent = `No. of tasks: ${project.getTaskCount()}`;
 
         const cardButtons = document.createElement('div');
-        cardButtons.classList.add('card-buttons');
+        cardButtons.classList.add('project-card-buttons');
 
         const viewTasksButton = document.createElement('button');
         viewTasksButton.textContent = 'View tasks'
