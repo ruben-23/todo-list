@@ -16,13 +16,13 @@ export default function displaySidebar() {
     projectsDiv.setAttribute('id', 'projects');
     projectsDiv.appendChild(projectsTitle);
 
-    const tasksDiv = document.createElement('div');
-    const tasksTitle = document.createElement('h2');
-    tasksTitle.textContent = "Tasks";
-    tasksDiv.setAttribute('id', 'todos');
-    tasksDiv.appendChild(tasksTitle);
+    const todosDiv = document.createElement('div');
+    const todosTitle = document.createElement('h2');
+    todosTitle.textContent = "Todos";
+    todosDiv.setAttribute('id', 'todos');
+    todosDiv.appendChild(todosTitle);
 
-    sideItems.append(projectsDiv, tasksDiv);
+    sideItems.append(projectsDiv, todosDiv);
     sidebarDiv.appendChild(sideItems);
 
     mainContainer.appendChild(sidebarDiv);

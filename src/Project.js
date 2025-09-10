@@ -6,7 +6,7 @@ export default class Project {
     constructor(title, description) {
         this.id = crypto.randomUUID();
         this.title = title;
-        this.description = description;
+        this.description = description || 'No description.';
         this.todos = [];
     }   
 
@@ -32,7 +32,7 @@ export default class Project {
         this.todos.splice(todoIndex, 1);
     }
 
-    getTaskCount() {
+    getTodoCount() {
         return this.todos.length;
     }
 
