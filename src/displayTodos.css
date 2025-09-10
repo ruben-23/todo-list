@@ -49,9 +49,22 @@ button:hover{
     border-radius: 12px;
 }
 
-.header {
+p {
     display: flex;
-    justify-content: space-between;
+    align-items: center;   
+}
+
+.todo-card>:nth-child(odd) {
+    background-color: rgb(248, 244, 244);
+    border-radius: 10px;
+    /* outline: 1px solid rgb(245, 244, 244); */
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 0.1fr;
+    justify-items: center;
+    align-items: center;
 }
 
 .check {
@@ -99,6 +112,7 @@ button:hover{
 .priority {
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 .priority-icon {

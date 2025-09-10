@@ -19,10 +19,15 @@ export function displayProjectCards(projects) {
         title.textContent = project.title;
 
         const description = document.createElement('p');
-        description.textContent = project.description;
+        const descriptionItalic = document.createElement('i');
+        descriptionItalic.textContent = project.description;
+
+        description.appendChild(descriptionItalic);
         
         const todoCount = document.createElement('p');
-        todoCount.textContent = `No. of todos: ${project.getTodoCount()}`;
+        const boldText = document.createElement('b');
+        boldText.textContent = `No. of todos: ${project.getTodoCount()}`;
+        todoCount.appendChild(boldText);
 
         const cardButtons = document.createElement('div');
         cardButtons.classList.add('project-card-buttons');

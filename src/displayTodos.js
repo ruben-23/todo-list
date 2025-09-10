@@ -39,11 +39,15 @@ export function displayItems(projects) {
             header.append(title, check);
 
             const description = document.createElement('p');
-            description.textContent = todo.description;
+            const descriptionItalic = document.createElement('i');
+            descriptionItalic.textContent = todo.description;
+
+            description.appendChild(descriptionItalic);
 
             const dueDate = document.createElement('p');
-            dueDate.textContent = `Due date: ${todo.dueDate}`;
-
+            const boldText = document.createElement('b');
+            boldText.textContent = `Due date: ${todo.dueDate}`;
+            dueDate.appendChild(boldText);
 
             const priorityDiv = document.createElement('div');
             priorityDiv.classList.add('priority');
