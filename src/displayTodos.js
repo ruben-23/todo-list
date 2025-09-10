@@ -98,7 +98,7 @@ export function displayItems(projects) {
                 displayItems(projects);
             });
 
-            editTodosButton.addEventListener('click', () => {displayEditTodoModal(todo, projects);})
+            editTodosButton.addEventListener('click', () => {displayEditTodoModal(todo);})
         }}
 }
 

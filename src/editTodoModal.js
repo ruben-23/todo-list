@@ -2,10 +2,12 @@
 
 import './addTodoModal.css';
 import { displayItems } from './displayTodos.js';
-import { getProjectById } from './projectsController.js';
+import { getProjectById, getProjects } from './projectsController.js';
 import Todo from './Todo.js';
 
-export default function displayEditTodoModal(todo, projects) {
+export default function displayEditTodoModal(todo) {
+
+    const projects = getProjects();
 
     const mainContainer = document.querySelector('.main-container');
 
