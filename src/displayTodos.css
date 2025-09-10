@@ -49,7 +49,7 @@ button:hover{
     border-radius: 12px;
 }
 
-p {
+.todo-card p {
     display: flex;
     align-items: center;   
     justify-content: center;
