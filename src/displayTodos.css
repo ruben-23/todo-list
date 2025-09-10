@@ -52,12 +52,12 @@ button:hover{
 p {
     display: flex;
     align-items: center;   
+    justify-content: center;
 }
 
 .todo-card>:nth-child(odd) {
     background-color: rgb(248, 244, 244);
     border-radius: 10px;
-    /* outline: 1px solid rgb(245, 244, 244); */
 }
 
 .header {
@@ -113,6 +113,7 @@ p {
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: center;
 }
 
 .priority-icon {
