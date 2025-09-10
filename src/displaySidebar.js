@@ -1,5 +1,8 @@
 
 import './displaySidebar.css';
+import displayTodos from './displayTodos';
+import { getProjects } from './projectsController';
+import displayProjects from './displayProjects';
 
 export default function displaySidebar() {
     const mainContainer = document.querySelector('.main-container');
@@ -26,4 +29,8 @@ export default function displaySidebar() {
     sidebarDiv.appendChild(sideItems);
 
     mainContainer.appendChild(sidebarDiv);
+
+    projectsDiv.addEventListener('click', () => { displayProjects(getProjects()) });
+    todosDiv.addEventListener('click', () => { displayTodos(getProjects()) });
+
 }
