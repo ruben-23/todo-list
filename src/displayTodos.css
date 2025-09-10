@@ -79,6 +79,7 @@ button:hover{
     align-items: center;
     font-size: 25px;
     opacity: 0.5;
+    margin-right: 8px;
 }
 
 .check:hover {
