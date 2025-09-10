@@ -135,6 +135,6 @@ export default function displayTodo(projects) {
 
     displayItems(projects);
 
-    addButton.addEventListener('click', () => displayAddTodoModal(projects));
+    addButton.addEventListener('click', () => displayAddTodoModal());
 
 }
