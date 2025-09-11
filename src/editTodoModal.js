@@ -3,6 +3,7 @@
 import './addTodoModal.css';
 import { displayItems } from './displayTodos.js';
 import { getProjectById, getProjects } from './projectsController.js';
+import { updateProjectsInLocalStorage } from './storageController.js';
 import Todo from './Todo.js';
 
 export default function displayEditTodoModal(todo) {
@@ -99,7 +100,7 @@ export default function displayEditTodoModal(todo) {
 
     // show the priority that is currently set as default
     const currentOption = (() => {
-        switch(todo.priority){
+        switch (todo.priority) {
             case 'Critical':
                 return option1;
             case 'High':
@@ -133,7 +134,7 @@ export default function displayEditTodoModal(todo) {
         option.textContent = project.title;
 
         // show the project that is currently set as default
-        if( project.id === todo.projectId){
+        if (project.id === todo.projectId) {
             option.selected = true;
         }
 
@@ -174,45 +175,48 @@ export default function displayEditTodoModal(todo) {
     mainContainer.appendChild(dialog);
 
     dialog.showModal();
-    
+
     // listeners
     closeButton.addEventListener('click', () => dialog.close());
-    
+
     saveButton.addEventListener('click', (e) => {
         e.preventDefault();
 
-        if(!titleInput.value || !dateInput.value){
+        if (!titleInput.value || !dateInput.value) {
             alert('Title and Due Date are required');
             return;
         }
 
         // if the project has been changed create new todo else update the todo.
-        if(projectSelect.value !== todo.projectId){
+        if (projectSelect.value !== todo.projectId) {
             // add todo to new project
-            const newTodo = new Todo( titleInput.value,
-                                    descriptionInput.value,
-                                    dateInput.value,
-                                    prioritySelect.value,
-                                    projectSelect.value,
-                                    notesTextarea.value );
+            const newTodo = new Todo(titleInput.value,
+                descriptionInput.value,
+                dateInput.value,
+                prioritySelect.value,
+                projectSelect.value,
+                notesTextarea.value,
+                false);
             let newProject = getProjectById(projectSelect.value);
             newProject.addTodo(newTodo);
 
             // delete todo from old project
             let oldProject = getProjectById(todo.projectId);
+            console.log(oldProject);
             oldProject.removeTodo(todo.id);
         } else {
             let project = getProjectById(todo.projectId);
             let exisitingTodo = project.getTodoById(todo.id);
-            exisitingTodo.updateTodo( titleInput.value,
-                                      descriptionInput.value,
-                                      dateInput.value,
-                                      prioritySelect.value,
-                                      projectSelect.value,
-                                      notesTextarea.value );
+            exisitingTodo.updateTodo(titleInput.value,
+                descriptionInput.value,
+                dateInput.value,
+                prioritySelect.value,
+                projectSelect.value,
+                notesTextarea.value);
         }
 
         displayItems(projects);
+        updateProjectsInLocalStorage();
         dialog.close();
     });
 

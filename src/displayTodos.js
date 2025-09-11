@@ -2,6 +2,7 @@
 import displayAddTodoModal from './addTodoModal';
 import displayEditTodoModal from './editTodoModal.js';
 import './displayTodos.css';
+import { updateProjectsInLocalStorage } from './storageController.js';
 
 
 export function displayItems(projects) {
@@ -99,6 +100,7 @@ export function displayItems(projects) {
 
             deleteTodosButton.addEventListener('click', () => {
                 project.removeTodo(todoCard.getAttribute('data-id'));
+                updateProjectsInLocalStorage();
                 displayItems(projects);
             });
 

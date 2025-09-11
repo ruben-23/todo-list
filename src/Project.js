@@ -40,4 +40,8 @@ export default class Project {
         return this.todos.find(todo => todo.id === id);
     }
 
+    updateId(id){
+        this.id = id;
+    }
+
 }

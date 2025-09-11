@@ -2,6 +2,7 @@
 import { displayProjectCards } from './displayProjects.js';
 import Project from './Project.js';
 import { addNewProject, getProjects } from './projectsController.js';
+import {updateProjectsInLocalStorage} from './storageController.js';
 import './addProjectModal.css';
 
 export default function displayAddProjectModal() {
@@ -84,6 +85,7 @@ export default function displayAddProjectModal() {
         const newProject = new Project( titleInput.value, descriptionInput.value);
 
         addNewProject(newProject);
+        updateProjectsInLocalStorage();
         displayProjectCards(getProjects());
         dialog.close();
     });

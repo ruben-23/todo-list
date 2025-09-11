@@ -1,7 +1,7 @@
 
 export default class Todo {
 
-    constructor(title, description, dueDate, priority, projectId, notes) {
+    constructor(title, description, dueDate, priority, projectId, notes, checked) {
         this.id = crypto.randomUUID();
         this.title = title;
         this.description = description;
@@ -9,7 +9,7 @@ export default class Todo {
         this.priority = priority;
         this.projectId = projectId,
         this.notes = notes;
-        this.checked = false;
+        this.checked = checked;
     }
 
     toggleChecked() {
@@ -23,6 +23,10 @@ export default class Todo {
         this.priority = priority;
         this.projectId = projectId,
         this.notes = notes;
+    }
+
+    updateId(id){
+        this.id = id;
     }
 
 }

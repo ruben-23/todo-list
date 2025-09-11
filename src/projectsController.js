@@ -1,12 +1,21 @@
 import Project from './Project.js';
 import Todo from './Todo.js';
+import { getProjectsFromLocalStorage, updateProjectsInLocalStorage } from './storageController.js';
 
-let projects = [
-    new Project('Project 0', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
-    new Project('Project 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
-    new Project('Project 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
-    new Project('Project 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
-]
+let projects = getProjectsFromLocalStorage() || null;
+
+
+function addProjects() {
+    projects = [];
+    projects.push(
+        new Project('Project 0', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
+        new Project('Project 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
+        new Project('Project 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
+        new Project('Project 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+    );
+    addTodosToProjects();
+    updateProjectsInLocalStorage();
+}
 
 function addTodosToProjects() {
 
@@ -16,7 +25,8 @@ function addTodosToProjects() {
         '2024-07-01',
         'High',
         projects[0].id,
-        'Focus on navigation.'
+        'Focus on navigation.',
+        false
     ));
     projects[0].addTodo(new Todo(
         'Write About Us',
@@ -24,7 +34,8 @@ function addTodosToProjects() {
         '2024-07-05',
         'Medium',
         projects[0].id,
-        'Coordinate with marketing.'
+        'Coordinate with marketing.',
+        false
     ));
     projects[0].addTodo(new Todo(
         'Setup analytics',
@@ -32,7 +43,8 @@ function addTodosToProjects() {
         '2024-07-10',
         'Low',
         projects[0].id,
-        'Test on browsers.'
+        'Test on browsers.',
+        false
     ));
 
     projects[1].addTodo(new Todo(
@@ -41,7 +53,8 @@ function addTodosToProjects() {
         '2024-07-15',
         'Critical',
         projects[1].id,
-        'Include revenue data.'
+        'Include revenue data.',
+        false
     ));
 
     projects[3].addTodo(new Todo(
@@ -50,7 +63,8 @@ function addTodosToProjects() {
         '2024-07-03',
         'Critical',
         projects[3].id,
-        'Use OAuth 2.0.'
+        'Use OAuth 2.0.',
+        false
     ));
     projects[3].addTodo(new Todo(
         'DB schema',
@@ -58,7 +72,8 @@ function addTodosToProjects() {
         '2024-07-07',
         'Medium',
         projects[3].id,
-        'Ensure scalability.'
+        'Ensure scalability.',
+        false
     ));
     projects[3].addTodo(new Todo(
         'CI/CD setup',
@@ -66,11 +81,13 @@ function addTodosToProjects() {
         '2024-07-12',
         'High',
         projects[3].id,
-        'Use GitHub Actions.'
+        'Use GitHub Actions.',
+        false
     ));
 }
 
-addTodosToProjects();
+if(!projects)
+    addProjects();
 
 function addNewProject(project) {
     projects.push(project);

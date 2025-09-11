@@ -3,6 +3,7 @@
 import './addTodoModal.css';
 import { displayItems } from './displayTodos.js';
 import { getProjectById, getProjects } from './projectsController.js';
+import { updateProjectsInLocalStorage } from './storageController.js';
 import Todo from './Todo.js';
 
 export default function displayAddTodoModal() {
@@ -166,10 +167,12 @@ export default function displayAddTodoModal() {
                                   dateInput.value,
                                   prioritySelect.value,
                                   projectSelect.value,
-                                  notesTextarea.value );
+                                  notesTextarea.value,
+                                  false );
 
         let project = getProjectById(projectSelect.value);
         project.addTodo(newTodo);
+        updateProjectsInLocalStorage();
         displayItems(projects);
         dialog.close();
     });
